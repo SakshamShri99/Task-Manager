@@ -12,7 +12,7 @@ router.post('/users', async (req, res) => {
 
   try {
     await user.save();
-    sendWelcomeEmail(user.email, user.name);
+    await sendWelcomeEmail(user.email, user.name);
     const token = await user.generateAuthToken();
     res.status(201).send({ user, token });
   } catch (e) {
@@ -108,7 +108,7 @@ const upload = multer({
 router.post(
   '/users/me/avatar',
   auth,
-  upload.single('profilepic'),
+  upload.single('avatar'),
   async (req, res) => {
     const buffer = await sharp(req.file.buffer)
       .resize({ width: 250, height: 250 })
@@ -119,7 +119,8 @@ router.post(
     res.send();
   },
   (error, req, res, next) => {
-    res.status(400).send({ error: error.message });
+    console.log(error);
+    res.status(400).send();
   }
 );
 
