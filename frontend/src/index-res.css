@@ -1,0 +1,145 @@
+@media only screen and (max-width: 480px) {
+  .navbar {
+    width: 100vw;
+  }
+
+  .navbar-brand {
+    font-size: 28px !important;
+    margin-left: 1.5rem !important;
+  }
+
+  .bg-primary .navbar-brand {
+    font-size: 28px !important;
+    margin-left: 0.5rem !important;
+  }
+
+  .logo {
+    margin: 0 !important;
+  }
+
+  .navbar-brand img {
+    height: 60px;
+    padding: 0 !important;
+  }
+
+  .bg-primary .logo {
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+
+  .bg-primary .navbar-brand img {
+    height: 60px;
+    padding: 0 !important;
+  }
+
+  .bg-primary .navbar-toggler {
+    margin-right: 0.5rem !important;
+  }
+
+  .bg-primary .home-link {
+    margin: 0 !important;
+    margin-right: 3rem !important;
+  }
+
+  .bg-primary #basic-navbar-nav .navbar-nav {
+    margin: 0 !important;
+    margin-top: 1rem !important;
+    margin-left: 0.5rem !important;
+  }
+
+  .material-icons {
+    padding-top: 2px;
+    font-size: 24px;
+  }
+
+  .navbar-nav .nav-link {
+    padding-left: 5px;
+    font-size: 15px !important;
+  }
+
+  #basic-navbar-nav .navbar-nav {
+    margin: 2rem 0rem 0 4rem !important;
+    flex-direction: row;
+  }
+
+  #modal-signin {
+    margin: 10rem 6rem 0rem 6rem;
+  }
+
+  .tagline-box {
+    position: absolute;
+    margin: 5rem 0 0 2rem;
+  }
+
+  .tagline {
+    font-size: 30px;
+  }
+
+  .btn-signup {
+    font-size: 30px !important;
+    margin: 0 !important;
+    padding: 0 0.5rem !important;
+  }
+
+  .dropdown-item .row {
+    flex-direction: row;
+  }
+
+  .profile-page {
+    width: 100vw;
+  }
+
+  #page-heading {
+    margin-top: 2rem !important;
+  }
+
+  .profile-page .col-12 {
+    margin: 0 !important;
+    margin-bottom: 1rem !important;
+  }
+
+  .delete-avatar-icon {
+    margin: 1rem auto 0 !important;
+  }
+
+  .task-menu {
+    margin-top: 2rem !important;
+  }
+
+  .task-menu {
+    margin-top: 2rem !important;
+  }
+
+  .task-list {
+    margin-top: 7rem !important;
+  }
+
+  .user-task {
+    margin: 0 !important;
+    margin-bottom: 2rem !important;
+  }
+
+  .add-task-icon {
+    font-size: 72px !important;
+    left: 77% !important;
+  }
+
+  .task-menu-icon {
+    font-size: 48px;
+    position: fixed;
+    top: 12%;
+    left: -2%;
+    color: #e95420;
+  }
+
+  .task-menu-close-icon {
+    font-size: 48px;
+    position: fixed;
+    top: 12%;
+    left: 40%;
+    color: #e95420;
+  }
+  .no-display {
+    display: none;
+  }
+}
