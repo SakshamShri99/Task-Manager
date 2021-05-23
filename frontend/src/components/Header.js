@@ -1,50 +1,44 @@
-import React, { useEffect, useState } from 'react'
-import { Navbar, Container, Nav, Dropdown, Row, Col } from 'react-bootstrap'
-import { useDispatch, useSelector } from 'react-redux'
-import { LinkContainer } from 'react-router-bootstrap'
-import { signOutAllUser, signOutUser } from '../actions/userActions'
-import ContactUs from './ContactUs'
-import SignIn from './SignIn'
+import React, { useState } from 'react';
+import { Navbar, Container, Nav, Dropdown, Row, Col } from 'react-bootstrap';
+import { useDispatch, useSelector } from 'react-redux';
+import { LinkContainer } from 'react-router-bootstrap';
+import { signOutAllUser, signOutUser } from '../actions/userActions';
+import ContactUs from './ContactUs';
+import SignIn from './SignIn';
 
 const Header = ({ bg = '', history }) => {
-  const [showContactUs, setShowContactUs] = useState(false)
-  const [showSignIn, setShowSignIn] = useState(false)
+  const [showContactUs, setShowContactUs] = useState(false);
+  const [showSignIn, setShowSignIn] = useState(false);
 
-  const { userInfo, success } = useSelector(state => state.userSignIn)
+  const { userInfo } = useSelector((state) => state.userSignIn);
 
-  const dispatch = useDispatch()
+  const dispatch = useDispatch();
 
   const signOutHandler = () => {
-    dispatch(signOutUser())
-    history.push('/')
-  }
+    dispatch(signOutUser());
+    history.push('/');
+  };
 
   const signOutAllHandler = () => {
-    dispatch(signOutAllUser())
-    history.push('/')
-  }
-
-  useEffect(() => {
-    if (success) {
-      history.push('/user/mytasks')
-    }
-  }, [success, history])
+    dispatch(signOutAllUser());
+    history.push('/');
+  };
 
   const CustomToggle = React.forwardRef(({ children, onClick }, ref) => (
     <LinkContainer to="" className="me-5">
       <a
         href="/"
         ref={ref}
-        onClick={e => {
-          e.preventDefault()
-          onClick(e)
+        onClick={(e) => {
+          e.preventDefault();
+          onClick(e);
         }}
         className="me-5  active nav-link active"
       >
         {children}
       </a>
     </LinkContainer>
-  ))
+  ));
 
   return (
     <header>
@@ -107,50 +101,63 @@ const Header = ({ bg = '', history }) => {
                     </Dropdown.Toggle>
 
                     <Dropdown.Menu>
-                      <Dropdown.Item
-                        onClick={() => history.push('/user/profile')}
+                      <Container
+                        fluid="true"
+                        style={{ margin: '0', padding: '0' }}
                       >
-                        <Container>
-                          <Row>
-                            <Col lg="1">
-                              <span className="material-icons">&#xf02e;</span>
-                            </Col>
-                            <Col>Profile</Col>
-                          </Row>
-                        </Container>
-                      </Dropdown.Item>
-                      <Dropdown.Item
-                        onClick={() => history.push('/user/mytasks')}
-                      >
-                        <Container>
-                          <Row>
-                            <Col lg="1">
-                              <span className="material-icons">&#xe065;</span>
-                            </Col>
-                            <Col>My Tasks</Col>
-                          </Row>
-                        </Container>
-                      </Dropdown.Item>
-                      <Dropdown.Item onClick={signOutHandler}>
-                        <Container>
-                          <Row>
-                            <Col lg="1">
-                              <span className="material-icons">&#xe9ba;</span>
-                            </Col>
-                            <Col>Sign Out</Col>
-                          </Row>
-                        </Container>
-                      </Dropdown.Item>
-                      <Dropdown.Item onClick={signOutAllHandler}>
-                        <Container>
-                          <Row>
-                            <Col lg="1">
-                              <span className="material-icons">&#xe9ba;</span>
-                            </Col>
-                            <Col>Sign Out All</Col>
-                          </Row>
-                        </Container>
-                      </Dropdown.Item>
+                        <Dropdown.Item
+                          onClick={() => history.push('/user/profile')}
+                        >
+                          <Container>
+                            <Row>
+                              <Col xs="2" lg="1">
+                                <span className="material-icons">&#xf02e;</span>
+                              </Col>
+                              <Col xs="10" lg="9">
+                                Profile
+                              </Col>
+                            </Row>
+                          </Container>
+                        </Dropdown.Item>
+                        <Dropdown.Item
+                          onClick={() => history.push('/user/mytasks')}
+                        >
+                          <Container>
+                            <Row>
+                              <Col xs="2" lg="1">
+                                <span className="material-icons">&#xe065;</span>
+                              </Col>
+                              <Col xs="10" lg="9">
+                                My Tasks
+                              </Col>
+                            </Row>
+                          </Container>
+                        </Dropdown.Item>
+                        <Dropdown.Item onClick={signOutHandler}>
+                          <Container>
+                            <Row>
+                              <Col xs="2" lg="1">
+                                <span className="material-icons">&#xe9ba;</span>
+                              </Col>
+                              <Col xs="10" lg="9">
+                                Sign Out
+                              </Col>
+                            </Row>
+                          </Container>
+                        </Dropdown.Item>
+                        <Dropdown.Item onClick={signOutAllHandler}>
+                          <Container>
+                            <Row>
+                              <Col xs="2" lg="1">
+                                <span className="material-icons">&#xe9ba;</span>
+                              </Col>
+                              <Col xs="10" lg="9">
+                                Sign Out All
+                              </Col>
+                            </Row>
+                          </Container>
+                        </Dropdown.Item>
+                      </Container>
                     </Dropdown.Menu>
                   </Dropdown>
                 </>
@@ -169,7 +176,7 @@ const Header = ({ bg = '', history }) => {
         </Container>
       </Navbar>
     </header>
-  )
-}
+  );
+};
 
-export default Header
+export default Header;

@@ -1,31 +1,31 @@
-import React, { useState } from 'react'
-import { useDispatch, useSelector } from 'react-redux'
-import { Button, Form, Container, Modal } from 'react-bootstrap'
-import { signInUser } from '../actions/userActions'
-import Message from './Message'
+import React, { useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { Button, Form, Container, Modal } from 'react-bootstrap';
+import { signInUser } from '../actions/userActions';
+import Message from './Message';
 
 const SignIn = ({ show, setShowSignIn }) => {
-  const [email, setEmail] = useState('')
-  const [password, setPassword] = useState('')
-  const [error, setError] = useState('')
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [error, setError] = useState('');
 
-  const dispatch = useDispatch()
+  const dispatch = useDispatch();
 
-  const { error: loginError } = useSelector(state => state.userSignIn)
+  const { error: loginError } = useSelector((state) => state.userSignIn);
 
-  const submitSignInHandler = e => {
-    e.preventDefault()
+  const submitSignInHandler = (e) => {
+    e.preventDefault();
     if (!email) {
-      setError('Email is required')
-      return
+      setError('Email is required');
+      return;
     }
     if (!password) {
-      setError('Password is required')
-      return
+      setError('Password is required');
+      return;
     }
-    dispatch(signInUser({ email, password }))
-    if (!loginError) setShowSignIn(false)
-  }
+    dispatch(signInUser({ email, password }));
+    if (!loginError) setShowSignIn(false);
+  };
 
   return (
     <Container style={{ width: '0', padding: '0', margin: '0' }}>
@@ -47,7 +47,7 @@ const SignIn = ({ show, setShowSignIn }) => {
                 placeholder="Enter Email"
                 size="sm"
                 value={email}
-                onChange={e => setEmail(e.target.value)}
+                onChange={(e) => setEmail(e.target.value)}
               />
             </Form.Group>
             <Form.Group>
@@ -58,7 +58,7 @@ const SignIn = ({ show, setShowSignIn }) => {
                 placeholder="Enter Password"
                 size="sm"
                 value={password}
-                onChange={e => setPassword(e.target.value)}
+                onChange={(e) => setPassword(e.target.value)}
               />
             </Form.Group>
             <Button type="submit" variant="primary">
@@ -68,7 +68,7 @@ const SignIn = ({ show, setShowSignIn }) => {
         </Modal.Body>
       </Modal>
     </Container>
-  )
-}
+  );
+};
 
-export default SignIn
+export default SignIn;

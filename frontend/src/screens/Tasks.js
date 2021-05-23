@@ -1,32 +1,32 @@
-import React, { useEffect, useState } from 'react'
-import { Col, Container, Row } from 'react-bootstrap'
-import { useDispatch, useSelector } from 'react-redux'
-import { getUserTasks } from '../actions/taskActions'
-import Header from '../components/Header'
-import TaskList from '../components/TaskList'
-import TaskMenu from '../components/TaskMenu'
+import React, { useEffect, useState } from 'react';
+import { Col, Container, Row } from 'react-bootstrap';
+import { useDispatch, useSelector } from 'react-redux';
+import { getUserTasks } from '../actions/taskActions';
+import Header from '../components/Header';
+import TaskList from '../components/TaskList';
+import TaskMenu from '../components/TaskMenu';
 
 const Tasks = ({ history }) => {
-  const [openTaskMenu, setOpenTaskMenu] = useState('')
-  const [closeTaskMenu, setCloseTaskMenu] = useState('no-display')
+  const [openTaskMenu, setOpenTaskMenu] = useState('');
+  const [closeTaskMenu, setCloseTaskMenu] = useState('no-display');
 
-  const { success: taskAdded } = useSelector(state => state.addTask)
-  const { success: taskUpdated } = useSelector(state => state.updateTask)
-  const { success: taskDeleted } = useSelector(state => state.deleteTask)
+  const { success: taskAdded } = useSelector((state) => state.addTask);
+  const { success: taskUpdated } = useSelector((state) => state.updateTask);
+  const { success: taskDeleted } = useSelector((state) => state.deleteTask);
 
-  const dispatch = useDispatch()
-  dispatch(getUserTasks())
+  const dispatch = useDispatch();
+  dispatch(getUserTasks());
 
   useEffect(() => {
-    if (taskAdded || taskUpdated || taskDeleted) dispatch(getUserTasks())
-  }, [taskAdded, taskDeleted, taskUpdated, dispatch])
+    if (taskAdded || taskUpdated || taskDeleted) dispatch(getUserTasks());
+  }, [taskAdded, taskDeleted, taskUpdated, dispatch]);
 
   return (
     <main style={{ backgroundColor: 'white', minHeight: '100vh' }}>
       <Header bg="primary" history={history} />
       <Container fluid className="task-page">
         <Row style={{ minHeight: '92.5vh' }}>
-          <Col className={`task-menu ${closeTaskMenu}`} xs={6} lg={2}>
+          <Col className={`task-menu ${closeTaskMenu}`} xs={8} lg={2}>
             <TaskMenu
               openTaskMenu={openTaskMenu}
               setOpenTaskMenu={setOpenTaskMenu}
@@ -45,7 +45,7 @@ const Tasks = ({ history }) => {
         </Row>
       </Container>
     </main>
-  )
-}
+  );
+};
 
-export default Tasks
+export default Tasks;

@@ -1,14 +1,23 @@
-import React, { useState } from 'react'
-import { Button } from 'react-bootstrap'
-import Header from '../components/Header'
-import SignUp from '../components/SignUp'
+import React, { useEffect, useState } from 'react';
+import { Button } from 'react-bootstrap';
+import { useSelector } from 'react-redux';
+import Header from '../components/Header';
+import SignUp from '../components/SignUp';
 
 const Home = ({ history }) => {
-  const [showSignUp, setShowSignUp] = useState(false)
+  const [showSignUp, setShowSignUp] = useState(false);
+
+  const { success } = useSelector((state) => state.userSignIn);
 
   const signUpHandler = () => {
-    setShowSignUp(true)
-  }
+    setShowSignUp(true);
+  };
+
+  useEffect(() => {
+    if (success) {
+      history.push('/user/mytasks');
+    }
+  });
 
   return (
     <>
@@ -33,7 +42,7 @@ const Home = ({ history }) => {
         </h1>
       </div>
     </>
-  )
-}
+  );
+};
 
-export default Home
+export default Home;

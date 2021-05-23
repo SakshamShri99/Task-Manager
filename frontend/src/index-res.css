@@ -1,4 +1,4 @@
-@media only screen and (max-width: 480px) {
+@media only screen and (max-width: 600px) {
   .navbar {
     width: 100vw;
   }
@@ -81,8 +81,51 @@
     padding: 0 0.5rem !important;
   }
 
+  .dropdown-menu {
+    max-width: none !important;
+    position: fixed !important;
+    left: 5%;
+  }
+
+  .dropdown-menu .container-true {
+    display: flex;
+    flex-direction: row;
+  }
+
+  .dropdown-item .container {
+    padding: 0;
+  }
+
   .dropdown-item .row {
     flex-direction: row;
+    flex-wrap: nowrap;
+    font-size: 80%;
+  }
+
+  .dropdown-item .row .material-icons {
+    font-size: 120%;
+  }
+
+  .bg-primary .dropdown-menu {
+    max-width: none !important;
+    position: fixed;
+    left: 6%;
+  }
+
+  .bg-primary .dropdown-menu .container-true {
+    display: flex;
+    flex-direction: row;
+  }
+
+  .bg-primary .dropdown-item .container {
+    padding: 0 10%;
+  }
+
+  .bg-primary .dropdown-item .row {
+    margin-right: 10%;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    font-size: 100%;
   }
 
   .profile-page {
@@ -136,7 +179,7 @@
     font-size: 48px;
     position: fixed;
     top: 12%;
-    left: 40%;
+    left: 55%;
     color: #e95420;
   }
   .no-display {
